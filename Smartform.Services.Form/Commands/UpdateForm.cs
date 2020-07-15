@@ -1,0 +1,11 @@
+﻿using System;
+using SmartForm.Common.Commands;
+using SmartForm.Services.Form.Domain.Models;
+
+namespace SmartForm.Services.Form.Commands
+{
+    public class UpdateForm : FormModel, IAuthenticatedCommand
+    {
+        public Guid UserId { get; set; }
+    }
+}
