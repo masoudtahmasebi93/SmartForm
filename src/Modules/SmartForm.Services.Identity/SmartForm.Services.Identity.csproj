@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SmartForm.Common\SmartForm.Common.csproj" />
+    <ProjectReference Include="..\..\Shared\SmartForm.Common\SmartForm.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>

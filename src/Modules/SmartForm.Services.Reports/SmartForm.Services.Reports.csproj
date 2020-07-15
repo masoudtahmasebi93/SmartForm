@@ -5,7 +5,7 @@
 
   <PropertyGroup>
     <PublishWithAspNetCoreTargetManifest>false</PublishWithAspNetCoreTargetManifest>
-    <RootNamespace>SmartForm.Services.Activities</RootNamespace>
+    <RootNamespace>SmartForm.Services.Reports</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +16,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SmartForm.Common\SmartForm.Common.csproj" />
+    <ProjectReference Include="..\..\Shared\SmartForm.Common\Smartform.Common.csproj" />
   </ItemGroup>
 </Project>

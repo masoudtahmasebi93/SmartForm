@@ -2,10 +2,11 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>SmartForm.Services.Category</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\SmartForm.Common\SmartForm.Common.csproj" />
+    <ProjectReference Include="..\..\Shared\SmartForm.Common\SmartForm.Common.csproj" />
   </ItemGroup>
 
   <ItemGroup>
