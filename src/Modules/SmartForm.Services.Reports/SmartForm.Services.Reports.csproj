@@ -16,6 +16,6 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\SmartForm.Common\Smartform.Common.csproj" />
+    <ProjectReference Include="..\..\Shared\SmartForm.Common\SmartForm.Common.csproj" />
   </ItemGroup>
 </Project>

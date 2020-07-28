@@ -24,7 +24,7 @@ namespace SmartForm.Common.Services
         {
             return _baseRepository.Any(id);
         }
-        
+
         public virtual async Task<List<T>> GetAsync()
         {
             return await _baseRepository.GetAsync();
@@ -33,6 +33,10 @@ namespace SmartForm.Common.Services
         public virtual async Task<T> GetAsync(Guid id)
         {
             return await _baseRepository.GetAsync(id);
+        }
+        public List<T> Get(Func<T, bool> predicate = null)
+        {
+            return _baseRepository.Get(predicate);
         }
 
         public virtual async Task<T> GetAsync(string name)
@@ -45,14 +49,14 @@ namespace SmartForm.Common.Services
             await _baseRepository.RemoveAsync(id);
         }
 
-        public virtual async Task UpdateAsync(Guid id, string field, T model)
+        public virtual async Task UpdateAsync(Guid id, T model)
         {
-            await _baseRepository.UpdateModelAsync(id, field, model);
+            await _baseRepository.UpdateAsync(id, model);
         }
 
-        public Task UpdateAsync(Guid id, T model)
+        public virtual async Task UpdateSingleFieldAsync(Guid id, dynamic model)
         {
-            throw new NotImplementedException();
+            await _baseRepository.UpdateSingleFieldAsync(id, model);
         }
     }
 }

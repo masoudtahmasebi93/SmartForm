@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 using MongoDB.Driver;
@@ -34,16 +36,16 @@ namespace SmartForm.Common.Repository
             }
         }
 
-        public virtual async Task UpdateAsync(Guid id, string field, T model)
+        public virtual async Task UpdateSingleFieldAsync(Guid id, dynamic fieldValue)
         {
             try
             {
                 var filter = Builders<T>.Filter.Eq("Id", id);
 
-                var t = model.GetType();
-                var prop = t.GetProperty(field);
+                //var t = model.GetType();
+                //var prop = t.GetProperty(field);
 
-                var update = Builders<T>.Update.AddToSet(field, prop.GetValue(model));
+                var update = Builders<T>.Update.Set(fieldValue.GetType().Name, fieldValue.GetType().Name);
                 await Collection.UpdateOneAsync(filter, update);
             }
             catch (SmartFormException e)
@@ -53,7 +55,7 @@ namespace SmartForm.Common.Repository
             }
         }
 
-        public virtual async Task UpdateModelAsync(Guid id, string field, T model)
+        public virtual async Task UpdateAsync(Guid id, T model)
         {
             try
             {
@@ -86,6 +88,18 @@ namespace SmartForm.Common.Repository
             try
             {
                 return await Collection.AsQueryable().ToListAsync();
+            }
+            catch (SmartFormException e)
+            {
+                Console.WriteLine(e);
+                throw e;
+            }
+        }
+        public virtual List<T> Get(Func<T, bool> predicate = null)
+        {
+            try
+            {
+                return Collection.AsQueryable().Where(predicate).ToList<T>();
             }
             catch (SmartFormException e)
             {

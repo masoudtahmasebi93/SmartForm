@@ -6,6 +6,5 @@ namespace SmartForm.Services.Form.Commands
 {
     public class UpdateForm : FormModel, IAuthenticatedCommand
     {
-        public Guid UserId { get; set; }
     }
 }

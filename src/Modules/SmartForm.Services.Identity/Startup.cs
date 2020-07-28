@@ -28,6 +28,13 @@ namespace SmartForm.Services.Identity
         {
             services.AddMvc().AddMvcOptions(mv => mv.EnableEndpointRouting = false);
             services.AddLogging();
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddJwt(Configuration);
             services.AddMongoDB(Configuration);
             services.AddRabbitMq(Configuration);
@@ -35,9 +42,12 @@ namespace SmartForm.Services.Identity
             services.AddSingleton<IUserRepository, UserRepository>();
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IEncrypter, Encrypter>();
-            
-             
-            services.AddSwaggerGen();
+
+
+            services.AddSwaggerGen
+                (c =>
+                c.IncludeXmlComments(string.Format(@"{0}\SmartForm.Services.Identity.xml",
+                System.AppDomain.CurrentDomain.BaseDirectory)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +60,9 @@ namespace SmartForm.Services.Identity
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+
             });
+            app.UseCors("MyPolicy");
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
             app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
             app.UseMvc();

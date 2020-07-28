@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartForm.Services.Identity</name>
+    </assembly>
+    <members>
+        <member name="M:SmartForm.Services.Identity.Controllers.AccountController.Post(SmartForm.Services.Identity.CreateUser)">
+            <summary>
+                This is for creating Users
+                This uses CreateUser command
+            </summary>
+            <returns>accepted</returns>
+        </member>
+    </members>
+</doc>

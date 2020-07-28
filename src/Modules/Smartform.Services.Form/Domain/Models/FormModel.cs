@@ -6,8 +6,6 @@ namespace SmartForm.Services.Form.Domain.Models
 {
     public class FormModel : BaseModel
     {
-        public Guid UserId { get; set; }
-        
         public string Code { get; set; }
         public string Title { get; set; } 
         public string Json { get; set; }
@@ -29,6 +27,8 @@ namespace SmartForm.Services.Form.Domain.Models
 
 
         public bool IsWidget { get; set; }
+        public bool IsFavorite{ get; set; }
+        public bool IsArchived{ get; set; }
         
         public int? Version { get; set; }
 

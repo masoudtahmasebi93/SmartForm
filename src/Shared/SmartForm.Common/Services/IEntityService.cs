@@ -11,8 +11,9 @@ namespace SmartForm.Common.Services
         Task RemoveAsync(Guid id);
         Task<List<T>> GetAsync();
         Task<T> GetAsync(Guid id);
+        List<T> Get(Func<T, bool> predicate = null);
         bool Any(Guid id);
         Task<T> GetAsync(string name);
-        Task UpdateAsync(Guid id, string field, T model);
+        Task UpdateSingleFieldAsync(Guid id, dynamic model);
     }
 }
