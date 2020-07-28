@@ -9,7 +9,7 @@ namespace SmartForm.Services.Activities
         {
         }
 
-        public ReportCreated(Guid id, Guid userId,
+        public ReportCreated(Guid id, Guid? userId,
             string category, string name,
             string description, DateTime createdAt)
         {
@@ -26,6 +26,6 @@ namespace SmartForm.Services.Activities
         public string Name { get; }
         public string Description { get; }
         public DateTime CreatedAt { get; }
-        public Guid UserId { get; }
+        public Guid? UserId { get; }
     }
 }

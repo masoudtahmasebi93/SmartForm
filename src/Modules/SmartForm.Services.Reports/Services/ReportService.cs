@@ -18,7 +18,7 @@ namespace SmartForm.Services.Activities.Services
             _folderRepository = folderRepository;
         }
 
-        public async Task AddAsync(Guid id, Guid userId, string category,
+        public async Task AddAsync(Guid id, Guid? userId, string category,
             string name, string description, DateTime createdAt)
         {
             FolderModel reportFolderModel = await _folderRepository.GetAsync(category);

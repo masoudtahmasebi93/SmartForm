@@ -4,6 +4,6 @@ namespace SmartForm.Common.Events
 {
     public interface IAuthenticatedEvent : IEvent
     {
-        Guid UserId { get; }
+        Guid? UserId { get; }
     }
 }

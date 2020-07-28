@@ -10,7 +10,7 @@ namespace SmartForm.Services.Activities.Domain.Models
         {
         }
 
-        public ReportModel(Guid id, FolderModel folderModel, Guid userId,
+        public ReportModel(Guid id, FolderModel folderModel, Guid? userId,
             string name, string description, DateTime createdAt)
         {
             if (string.IsNullOrWhiteSpace(name))
@@ -26,7 +26,7 @@ namespace SmartForm.Services.Activities.Domain.Models
 
 
         public string Category { get; protected set; }
-        public Guid UserId { get; protected set; }
+        
         public string Description { get; protected set; }
     }
 }

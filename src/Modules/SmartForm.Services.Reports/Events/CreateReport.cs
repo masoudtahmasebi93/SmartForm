@@ -10,6 +10,7 @@ namespace SmartForm.Services.Activities.Events
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime CreatedAt { get; set; }
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
+        //Guid? IAuthenticatedCommand.UserId { get ; set; }
     }
 }
