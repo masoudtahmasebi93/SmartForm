@@ -43,6 +43,9 @@ namespace SmartForm.Services.Identity
             services.AddSingleton<IUserService, UserService>();
             services.AddSingleton<IEncrypter, Encrypter>();
 
+            services.AddSingleton<ICompanyRepository, CompanyRepository>();
+            services.AddSingleton<ICompanyService, CompanyService>();
+
 
             services.AddSwaggerGen
                 (c =>

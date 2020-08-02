@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SmartForm.Common.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SmartForm.Common.Services
 {
-    public interface IEntityService<T> : IBaseService
+    public interface IEntityService<T> : IBaseService where T : BaseModel
     {
         Task AddAsync(T model);
         Task UpdateAsync(Guid id, T model);

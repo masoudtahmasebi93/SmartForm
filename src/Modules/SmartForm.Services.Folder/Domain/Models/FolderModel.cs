@@ -4,5 +4,6 @@ namespace SmartForm.Services.Category.Domain.Models
 {
     public class FolderModel : BaseModel
     {
+
     }
 }

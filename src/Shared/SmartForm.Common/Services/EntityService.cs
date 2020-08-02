@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using SmartForm.Common.Domain.Models;
 using SmartForm.Common.Repository;
 
 namespace SmartForm.Common.Services
 {
-    public class EntityService<T> : IEntityService<T>
+    public class EntityService<T> : IEntityService<T> where T : BaseModel
     {
         public readonly IBaseRepository<T> _baseRepository;
 

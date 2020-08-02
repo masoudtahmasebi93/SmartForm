@@ -1,10 +1,11 @@
-﻿using System;
+﻿using SmartForm.Common.Domain.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace SmartForm.Common.Repository
 {
-    public interface IBaseRepository<T>
+    public interface IBaseRepository<T> where T : BaseModel
     {
         Task AddAsync(T model);
         Task UpdateSingleFieldAsync(Guid id, dynamic fieldValue);
