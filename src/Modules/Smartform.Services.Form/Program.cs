@@ -8,10 +8,10 @@ namespace SmartForm.Services.Form
         public static void Main(string[] args)
         {
             ServiceHost.Create<Startup>(args)
-                .UseRabbitMq()
-                .SubscribeToCommand<CreateForm>()
-                .Build()
-                .Run();
+               .UseRabbitMq()
+               .SubscribeToCommand<CreateForm>()
+               .Build()
+               .Run();
         }
     }
 }

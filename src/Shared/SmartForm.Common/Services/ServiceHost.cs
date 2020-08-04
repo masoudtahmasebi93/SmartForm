@@ -36,6 +36,19 @@ namespace SmartForm.Common.Services
 
             return new HostBuilder(webHostBuilder.Build());
         }
+        public static IWebHostBuilder CreateWebHost<TStartup>(string[] args) where TStartup : class
+        {
+            Console.Title = typeof(TStartup).Namespace;
+            var config = new ConfigurationBuilder()
+                .AddEnvironmentVariables()
+                .AddCommandLine(args)
+                .Build();
+            var webHostBuilder = WebHost.CreateDefaultBuilder(args)
+                .UseConfiguration(config)
+                .UseStartup<TStartup>();
+
+            return webHostBuilder;
+        }
 
         public abstract class BuilderBase
         {

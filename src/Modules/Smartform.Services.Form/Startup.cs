@@ -48,7 +48,7 @@ namespace SmartForm.Services.Form
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
             // specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "form-service"); });
 
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
 
