@@ -34,12 +34,12 @@ namespace SmartForm.Api
             //services.AddJwt(Configuration);
             services.AddAuth(Configuration);
             //services.AddAuthentication();
-            services.AddRabbitMq(Configuration);
-            services.AddMongoDB(Configuration);
+            //services.AddRabbitMq(Configuration);
+            //services.AddMongoDB(Configuration);
             
             services.AddSwaggerGen();
-            services.AddOcelot(Configuration);
-                services.AddSwaggerForOcelot(Configuration); 
+            //services.AddOcelot(Configuration);
+            //    services.AddSwaggerForOcelot(Configuration); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,14 +54,14 @@ namespace SmartForm.Api
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
             if (env.IsDevelopment()) app.UseDeveloperExceptionPage();
-            app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
+            //app.ApplicationServices.GetService<IDatabaseInitializer>().InitializeAsync();
             app.UseAuthentication();
             app.UseMvc();
-            app.UseOcelot().Wait();
-            app.UseSwaggerForOcelotUI(opt =>
-            {
-                opt.PathToSwaggerGenerator = "/swagger/docs";
-            });
+            //app.UseOcelot().Wait();
+            //app.UseSwaggerForOcelotUI(opt =>
+            //{
+            //    opt.PathToSwaggerGenerator = "/swagger/docs";
+            //});
         }
     }
 }
